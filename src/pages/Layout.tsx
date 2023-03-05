@@ -38,9 +38,14 @@ export const Layout = ({ children }: LayoutProps) => {
                 initial="closed"
                 animate={isOpen ? 'open' : 'closed'}
                 variants={variants}
-                className=" rounded-tr-3xl p-2 flex flex-col justify-between fixed top-0 left-0 bottom-0 w-[80%] md:w-[20%] lg:w-[10%] bg-background"
+                className=" z-20 rounded-tr-3xl p-2 flex flex-col justify-between fixed top-0 left-0 bottom-0 w-[80%] md:w-[20%] lg:w-[10%] bg-background"
             >
                 <ul className="flex flex-col gap-5 justify-center mt-10 p-2">
+                    <div>
+                        <span className="text-red text-xl mb-2">
+                            My movies app
+                        </span>
+                    </div>
                     <li className="text-textPrimary flex justify-between items-center hover:text-textWhite  ">
                         <Link to="/dashboard">Dashboard</Link>
                         <FaFlipboard className="text-red" />
