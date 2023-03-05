@@ -12,6 +12,11 @@ import {
 import { OverViewRow } from './OverViewRow';
 import { Statistics } from './Statistics';
 import { Alert } from '../app';
+import {
+    isFavoriteItem,
+    toggleFavoriteItem,
+} from '../../helpers/verifyFavorites';
+import { useFavorites } from '../../hooks';
 
 interface CoverContainerProps {
     movie: Movie | null;
@@ -19,6 +24,8 @@ interface CoverContainerProps {
 
 export const CoverContainer = ({ movie }: CoverContainerProps) => {
     const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
+    const { handleFavorite, isFavorite } = useFavorites(movie as Movie);
+
     const handleToggleAlert = () => {
         setIsAlertOpen(!isAlertOpen);
     };
@@ -74,9 +81,18 @@ export const CoverContainer = ({ movie }: CoverContainerProps) => {
                         WATCH NOW
                     </button>
 
-                    <button className="border border-red text-red p-2 md:w-1/2 rounded-md flex justify-center items-center gap-2">
-                        <FaHeart />
-                        ADD TO FAVORITES
+                    <button
+                        onClick={handleFavorite}
+                        className="border border-red text-red p-2 md:w-1/2 rounded-md flex justify-center items-center gap-2"
+                    >
+                        <FaHeart
+                            className={`${
+                                isFavorite ? 'text-red' : 'text-textWhite'
+                            }`}
+                        />
+                        {isFavorite
+                            ? 'REMOVE FROM FAVORITES'
+                            : 'ADD TO FAVORITES'}
                     </button>
                 </div>
             </div>

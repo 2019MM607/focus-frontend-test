@@ -6,7 +6,6 @@ interface CastItemProps {
     item: Cast;
 }
 export const CastItem = ({ item }: CastItemProps) => {
-    console.log(item);
     return (
         <div className="flex flex-col justify-center items-center border  border-red rounded-xl  p-5">
             <div className="relative flex flex-col items-center rounded-[20px] w-full ">
