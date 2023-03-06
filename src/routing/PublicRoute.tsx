@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-import { Dashboard } from '../pages';
+import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../app/redux-hooks';
+
+import { useAppSelector } from '../app/redux-hooks';
 import { RootState } from '../redux/store';
-import { autoLogin } from '../redux/slice/auth.slice';
 
 export const PublicRoute = () => {
     const { isAuthenticated } = useAppSelector(

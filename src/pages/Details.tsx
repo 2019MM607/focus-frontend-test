@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useLayoutEffect, useMemo } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { useMovie } from '../hooks';
 import { CoverContainer } from '../components/Details';
 import { MoviesList } from '../components/Dashboard';

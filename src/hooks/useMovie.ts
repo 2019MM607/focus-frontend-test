@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import { Movie } from '../interfaces/movie.interface';
 import { movieClient } from '../api/';
 import { Cast } from '../interfaces/movie-cast.interface';

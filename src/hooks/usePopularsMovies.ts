@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/redux-hooks';
+
 import { RootState } from '../redux/store';
 import { getMovies } from '../redux/services/movies-thunk.service';
+import { useAppDispatch, useAppSelector } from '../app/redux-hooks';
 
 export const usePopularsMovies = (query: string) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);

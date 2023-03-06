@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
-import { Movie } from '../../interfaces/movie.interface';
-import noImage from '/public/no-image.png';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
     FaCalendarDay,
     FaEye,
     FaHeart,
     FaSadCry,
-    FaClosedCaptioning,
     FaRegTimesCircle,
 } from 'react-icons/fa';
+
+import { Movie } from '../../interfaces/movie.interface';
+import noImage from '/no-image.png';
 import { OverViewRow } from './OverViewRow';
 import { Statistics } from './Statistics';
 import { Alert } from '../app';
-import {
-    isFavoriteItem,
-    toggleFavoriteItem,
-} from '../../helpers/verifyFavorites';
 import { useFavorites } from '../../hooks';
 
 interface CoverContainerProps {
@@ -25,13 +21,30 @@ interface CoverContainerProps {
 export const CoverContainer = ({ movie }: CoverContainerProps) => {
     const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
     const { handleFavorite, isFavorite } = useFavorites(movie as Movie);
+    const [coverStyle, setCoverStyle] = useState({});
+
+    const setCover = useCallback(() => {
+        movie?.backdrop_path &&
+            setCoverStyle({
+                backgroundImage: `url(${import.meta.env.VITE_IMAGE_BASEURL}${
+                    movie?.backdrop_path
+                })`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
+                backgroundAttachment: 'fixed',
+            });
+    }, [movie]);
+
+    useEffect(() => {
+        setCover();
+    }, [movie]);
 
     const handleToggleAlert = () => {
         setIsAlertOpen(!isAlertOpen);
     };
     return (
-        <div className=" p-2 mt-20 flex flex-col md:flex-row ">
-            <div className="md:w-1/2 w-full flex justify-center ">
+        <div className=" p-5  flex flex-col md:flex-row   " style={coverStyle}>
+            <div className="shadow-lg md:w-1/2 w-full flex justify-center items-center ">
                 <img
                     src={
                         movie?.poster_path
@@ -41,7 +54,7 @@ export const CoverContainer = ({ movie }: CoverContainerProps) => {
                             : noImage
                     }
                     alt={movie?.title}
-                    className="w-[400px] rounded-md shadow-md"
+                    className="w-[300px] h-[500px] rounded-md shadow-md"
                 />
             </div>
 
@@ -72,7 +85,7 @@ export const CoverContainer = ({ movie }: CoverContainerProps) => {
                     vote_count={movie?.vote_count || 0}
                     popularity={movie?.popularity || 0}
                 />
-                <div className="border w-full flex flex-col mt-5 gap-2">
+                <div className="w-full flex flex-col mt-5 gap-2 ">
                     <button
                         onClick={handleToggleAlert}
                         className="bg-red text-white p-2 md:w-1/2 w-full rounded-md flex justify-center items-center gap-2"

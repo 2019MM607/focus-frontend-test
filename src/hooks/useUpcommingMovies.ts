@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { movieClient } from '../api/';
 import { IMovie, Movie } from '../interfaces/movie.interface';
 

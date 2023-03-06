@@ -1,5 +1,4 @@
 import { LottieOptions, useLottie } from 'lottie-react';
-import React from 'react';
 
 interface IProps {
     animationData: LottieOptions['animationData'];

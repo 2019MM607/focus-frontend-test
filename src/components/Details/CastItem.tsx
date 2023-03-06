@@ -1,6 +1,7 @@
 import React from 'react';
+
 import { Cast } from '../../interfaces/movie-cast.interface';
-import noImageCast from '/public/no-image-cast.jpg';
+import noImageCast from '/no-image-cast.jpg';
 
 interface CastItemProps {
     item: Cast;

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MdDateRange } from 'react-icons/md';
 import { AiOutlineBarChart, AiFillEye } from 'react-icons/ai';
-import noImage from '/public/no-image.png';
-
-import { Movie } from '../../interfaces/movie.interface';
 import { motion } from 'framer-motion';
+
+import noImage from '/no-image.png';
+import { Movie } from '../../interfaces/movie.interface';
 import { useMovieCardAnimation } from '../../hooks';
-import { Link, useNavigate } from 'react-router-dom';
 
 interface MovieCardProps {
     movie: Movie;

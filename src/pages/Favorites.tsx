@@ -1,8 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 
-import { useFavorites } from '../hooks';
 import { Movie } from '../interfaces/movie.interface';
-import { getFavorites } from '../helpers/verifyFavorites';
+import { getFavorites } from '../helpers/local-storage-favorites';
 import { MoviesList } from '../components/Dashboard';
 import { Title } from '../components/app';
 

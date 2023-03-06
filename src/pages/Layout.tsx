@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-    FaStar,
-    FaFlipboard,
-    FaUserAlt,
-    FaPowerOff,
-    FaBars,
-} from 'react-icons/fa';
+import { FaStar, FaFlipboard, FaPowerOff, FaBars } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 
 const Layout = () => {

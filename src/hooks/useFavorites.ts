@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { isFavoriteItem, toggleFavoriteItem } from '../helpers/verifyFavorites';
+
+import {
+    isFavoriteItem,
+    toggleFavoriteItem,
+} from '../helpers/local-storage-favorites';
 import { Movie } from '../interfaces/movie.interface';
 
 export const useFavorites = (movie: Movie) => {

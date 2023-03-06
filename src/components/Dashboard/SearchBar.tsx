@@ -1,16 +1,15 @@
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { usePopularsMovies } from '../../hooks';
 import { useFormik } from 'formik';
+
+import { usePopularsMovies } from '../../hooks';
 
 export const SearchBar = () => {
     const { handleChange, values } = useFormik({
         initialValues: {
             query: '',
         },
-        onSubmit: (values) => {
-            console.log(values);
-        },
+        onSubmit: (values) => {},
     });
     const { refetch } = usePopularsMovies(values.query);
 
@@ -19,7 +18,7 @@ export const SearchBar = () => {
         refetch();
     };
     return (
-        <div className=" mt-5 ">
+        <div className=" mt-10 md:ml-10 ">
             <form
                 onSubmit={handleSubmit}
                 className="w-full flex justify-start gap-1"

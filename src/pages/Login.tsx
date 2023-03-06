@@ -1,28 +1,33 @@
-import { useFormik } from 'formik';
 import React from 'react';
-import { useAppDispatch } from '../app/redux-hooks';
+import { useFormik } from 'formik';
+
+import { useAppDispatch, useAppSelector } from '../app/redux-hooks';
 import { login } from '../redux/services/auth-thunk';
+import { RootState } from '../redux/store';
+import { motion } from 'framer-motion';
+import { useLogin } from '../hooks';
 
 const Login = () => {
-    const appDispatch = useAppDispatch();
-    const { values, handleChange, submitForm } = useFormik({
-        initialValues: {
-            email: '',
-            password: '',
+    const { handleChange, handleSubmit, isError, values } = useLogin();
+    //shake
+    const variants = {
+        initial: {
+            x: 0,
         },
-        onSubmit: (values) => {
-            appDispatch(login(values));
+        animate: {
+            x: [0, 10, -10, 10, -10, 10, -10, 10, -10, 0],
+            transition: {
+                duration: 0.5,
+            },
         },
-    });
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        submitForm();
     };
 
     return (
         <div className="w-full h-screen flex justify-center items-center flex-col gap-5">
-            <form
+            <motion.form
+                variants={variants}
+                initial="initial"
+                animate={isError ? 'animate' : 'initial'}
                 onSubmit={handleSubmit}
                 className=" w-[90%] md:w-1/3 lg:w-1/4 border border-red p-3 rounded-lg flex flex-col justify-center items-center"
             >
@@ -34,6 +39,7 @@ const Login = () => {
                         Email
                     </label>
                     <input
+                        required
                         placeholder="johndoe@gmail.com"
                         type="email"
                         name="email"
@@ -49,6 +55,7 @@ const Login = () => {
                         Password
                     </label>
                     <input
+                        required
                         type="password"
                         name="password"
                         value={values.password}
@@ -63,7 +70,7 @@ const Login = () => {
                     value="LOGIN"
                     className="bg-red w-full p-2 rounded-lg text-textWhite cursor-pointer"
                 />
-            </form>
+            </motion.form>
         </div>
     );
 };

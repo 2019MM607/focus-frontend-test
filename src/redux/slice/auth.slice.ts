@@ -32,6 +32,9 @@ export const authslice = createSlice({
             state.token = payload?.token;
             state.isAuthenticated = true;
         });
+        builder.addCase(login.rejected, (state) => {
+            state.isError = true;
+        });
     },
 });
 
