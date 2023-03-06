@@ -96,7 +96,7 @@ export const CoverContainer = ({ movie }: CoverContainerProps) => {
 
                     <button
                         onClick={handleFavorite}
-                        className="border border-red text-red p-2 md:w-1/2 rounded-md flex justify-center items-center gap-2"
+                        className="bg-textWhite border-red text-red p-2 md:w-1/2 rounded-md flex justify-center items-center gap-2"
                     >
                         <FaHeart
                             className={`${

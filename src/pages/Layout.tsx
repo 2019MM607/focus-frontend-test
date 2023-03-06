@@ -42,11 +42,17 @@ const Layout = () => {
                             My movies app
                         </span>
                     </div>
-                    <li className="text-textPrimary flex justify-between items-center hover:text-textWhite  ">
+                    <li
+                        className="text-textPrimary flex justify-between items-center hover:text-textWhite  "
+                        onClick={handleOpenCloseNav}
+                    >
                         <Link to="/dashboard">Dashboard</Link>
                         <FaFlipboard className="text-red" />
                     </li>
-                    <li className="text-textPrimary flex justify-between items-center hover:text-textWhite  ">
+                    <li
+                        className="text-textPrimary flex justify-between items-center hover:text-textWhite  "
+                        onClick={handleOpenCloseNav}
+                    >
                         <Link to="/favorites">Favorites</Link>
                         <FaStar className="text-red" />
                     </li>
