@@ -56,10 +56,6 @@ const Layout = () => {
                         <Link to="/favorites">Favorites</Link>
                         <FaStar className="text-red" />
                     </li>
-                    <li className="text-textPrimary flex justify-between items-center hover:text-textWhite  ">
-                        <Link to="/profile">Profile</Link>
-                        <FaUserAlt className="text-red" />
-                    </li>
                 </ul>
                 <div>
                     <button

@@ -1,17 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-const Home = React.lazy(
-    () => import(/* webpackChunkName: "HomePage" */ '../pages/Home')
-);
-const Login = React.lazy(
-    () => import(/* webpackChunkName: "Login" */ '../pages/Login')
-);
-const Layout = React.lazy(
-    () => import(/* webpackChunkName: "Layout" */ '../pages/Layout')
-);
-const NotFound = React.lazy(
-    () => import(/* webpackChunkName: "NotFound" */ '../pages/NotFound')
-);
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import NotFound from '../pages/NotFound';
+import Layout from '../pages/Layout';
 
 import { PrivateRoute, PublicRoute, protectedRoutes } from './index';
 import { Route as IRoute } from './routes';
@@ -24,22 +16,13 @@ export const AppRouter = () => {
             <BrowserRouter>
                 <Routes>
                     <Route element={<PublicRoute />}>
-                        <Route
-                            path="/"
-                            element={
-                                <Suspense fallback={<Fallback />}>
-                                    <Home />
-                                </Suspense>
-                            }
-                        />
+                        <Route path="/" element={<Home />} />
                         <Route path="login" element={<Login />} />
                     </Route>
                     <Route
                         element={
                             <PrivateRoute>
-                                <Suspense fallback={<Fallback />}>
-                                    <Layout />
-                                </Suspense>
+                                <Layout />
                             </PrivateRoute>
                         }
                     >

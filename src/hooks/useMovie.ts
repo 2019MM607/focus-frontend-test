@@ -7,6 +7,7 @@ export const useMovie = (id: string | undefined) => {
     const [movie, setMovie] = useState<Movie | null>(null);
     const [cast, setCast] = React.useState<Cast[]>([]);
     const [relateds, setRelateds] = React.useState<Movie[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const getMovieDetails = async () => {
         const { data } = await movieClient.get<Movie>(`/movie/${id}`);
@@ -26,9 +27,13 @@ export const useMovie = (id: string | undefined) => {
     };
 
     const trigger = () => {
-        getMovieDetails();
-        getMovieCast();
-        getRelatedMovies();
+        setIsLoading(true);
+        setTimeout(() => {
+            getMovieDetails();
+            getMovieCast();
+            getRelatedMovies();
+            setIsLoading(false);
+        }, 3000);
     };
 
     useEffect(() => {
@@ -37,6 +42,7 @@ export const useMovie = (id: string | undefined) => {
 
     return {
         movie,
+        isLoading,
         cast,
         relateds,
         trigger,
