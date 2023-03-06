@@ -17,7 +17,7 @@ export const Details = () => {
     }, [id]);
 
     return (
-        <Layout>
+        <div>
             <CoverContainer movie={movie} />
             <div className="mt-10 ">
                 {cast.length > 0 && (
@@ -36,6 +36,6 @@ export const Details = () => {
                     </>
                 )}
             </div>
-        </Layout>
+        </div>
     );
 };

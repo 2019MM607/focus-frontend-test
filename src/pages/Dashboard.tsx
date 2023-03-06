@@ -7,7 +7,7 @@ export const Dashboard = () => {
     const { movies } = usePopularsMovies('');
     const { upComings } = useUpcommingMovies();
     return (
-        <Layout>
+        <div>
             <SearchBar />
             <div className="mt-10 p-2">
                 <Title title="Movies" />
@@ -18,6 +18,6 @@ export const Dashboard = () => {
                 <Title title="Upcoming Movies" />
                 <MoviesList movies={upComings} />
             </div>
-        </Layout>
+        </div>
     );
 };

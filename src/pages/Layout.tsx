@@ -7,12 +7,9 @@ import {
     FaPowerOff,
     FaBars,
 } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
-interface LayoutProps {
-    children: React.ReactNode;
-}
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const variants = {
         open: { x: '0px' },
@@ -20,6 +17,11 @@ export const Layout = ({ children }: LayoutProps) => {
     };
     const handleOpenCloseNav = () => {
         setIsOpen(!isOpen);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        location.reload();
     };
 
     return (
@@ -60,14 +62,17 @@ export const Layout = ({ children }: LayoutProps) => {
                     </li>
                 </ul>
                 <div>
-                    <button className=" flex items-center justify-center gap-2 w-full  text-textWhite bg-gradient-to-r from-from to-red  p-2 rounded-md shadow-md brightness-75">
+                    <button
+                        onClick={handleLogout}
+                        className=" flex items-center justify-center gap-2 w-full  text-textWhite bg-gradient-to-r from-from to-red  p-2 rounded-md shadow-md brightness-75"
+                    >
                         <span>Logout</span>
                         <FaPowerOff />
                     </button>
                 </div>
             </motion.nav>
 
-            <div className=" w-full ">{children}</div>
+            <div className=" w-full ">{<Outlet />}</div>
         </div>
     );
 };

@@ -14,11 +14,11 @@ export const Favorites = () => {
     }, []);
 
     return (
-        <Layout>
+        <div>
             <div className="mt-5">
                 <Title title="Favorites" />
                 <MoviesList movies={favorites} />
             </div>
-        </Layout>
+        </div>
     );
 };

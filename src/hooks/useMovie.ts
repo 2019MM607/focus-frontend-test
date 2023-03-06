@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Movie } from '../interfaces/movie.interface';
-import { movieClient } from '../api/movie-api';
+import { movieClient } from '../api/';
 import { Cast } from '../interfaces/movie-cast.interface';
 
 export const useMovie = (id: string | undefined) => {
