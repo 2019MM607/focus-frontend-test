@@ -13,7 +13,7 @@ VITE_PASSWORD=cytislicka
 
 VITE_API_AUTH=https://reqres.in/api/login
 VITE_API_MOVIES=https://api.themoviedb.org/3
-VITE_IMAGE_BASEURL=https://image.tmdb.org/t/p/w500
+VITE_IMAGE_BASEURL=https://image.tmdb.org/t/p/original
 ```
 4. Run this command if you are using ```yarn```
 ```
