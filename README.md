@@ -17,7 +17,7 @@ VITE_IMAGE_BASEURL=https://image.tmdb.org/t/p/w500
 ```
 4. Run this command if you are using ```yarn```
 ```
-yarn install
+yarn
 yarn dev
 ```
 
@@ -50,4 +50,5 @@ https://api.themoviedb.org/3 (THE MOVIESDB API)
 https://reqres.in/api/login (AUTH)
 
 ## Deploy site
+https://astounding-jalebi-88ffa4.netlify.app
 
