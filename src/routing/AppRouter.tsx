@@ -22,9 +22,7 @@ export const AppRouter = () => {
                         <Route
                             element={
                                 <PrivateRoute>
-                                    <Suspense fallback={<Fallback />}>
-                                        <Layout />
-                                    </Suspense>
+                                    <Layout />
                                 </PrivateRoute>
                             }
                         >
