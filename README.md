@@ -27,4 +27,27 @@ npm install
 npm run dev
 ```
 
-6. You'll se the app running at ```localhost```
+6. You'll se the app running at ```localhost```  
+     
+     
+    
+## Tech stack
+- ReactJS + Typescript
+- Hooks
+- Redux (for search by query and auth)
+- Tailwind
+- Lottie (for load animations and 404 screen)
+- framer-motion (for animations)
+- react-router-dom
+- prettier
+- eslint
+- yarn
+  
+
+## APIS
+https://api.themoviedb.org/3 (THE MOVIESDB API)  
+
+https://reqres.in/api/login (AUTH)
+
+## Deploy site
+
