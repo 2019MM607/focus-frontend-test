@@ -1,13 +1,12 @@
 import React, { useCallback, useEffect, useLayoutEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Layout } from './Layout';
 import { useMovie } from '../hooks';
 import { CoverContainer } from '../components/Details';
 import { MoviesList } from '../components/Dashboard';
 import { Title } from '../components/app';
 import { CastList } from '../components/Details/CastList';
 
-export const Details = () => {
+const Details = () => {
     const { id } = useParams<{ id: string }>();
     const { movie, cast, relateds, trigger } = useMovie(id);
 
@@ -39,3 +38,5 @@ export const Details = () => {
         </div>
     );
 };
+
+export default Details;

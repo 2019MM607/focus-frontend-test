@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 
-export const Layout = () => {
+const Layout = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const variants = {
         open: { x: '0px' },
@@ -76,3 +76,5 @@ export const Layout = () => {
         </div>
     );
 };
+
+export default Layout;

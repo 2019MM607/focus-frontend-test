@@ -1,9 +1,8 @@
 import { SearchBar, MoviesList } from '../components/Dashboard';
 import { Title } from '../components/app';
 import { usePopularsMovies, useUpcommingMovies } from '../hooks';
-import { Layout } from './Layout';
 
-export const Dashboard = () => {
+const Dashboard = () => {
     const { movies } = usePopularsMovies('');
     const { upComings } = useUpcommingMovies();
     return (
@@ -21,3 +20,5 @@ export const Dashboard = () => {
         </div>
     );
 };
+
+export default Dashboard;

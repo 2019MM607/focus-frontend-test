@@ -1,26 +1,30 @@
 import React from 'react';
-import { Dashboard, Details, Favorites, Profile } from '../pages';
+const Dashboard = React.lazy(
+    () => import(/* webpackChunkName: "Dashboard" */ '../pages/Dashboard')
+);
+const Details = React.lazy(
+    () => import(/* webpackChunkName: "Details" */ '../pages/Details')
+);
+const Favorites = React.lazy(
+    () => import(/* webpackChunkName: "Favorites" */ '../pages/Favorites')
+);
 
 export interface Route {
-  path: string;
-  Component: () => JSX.Element;
+    path: string;
+    Component: React.LazyExoticComponent<() => JSX.Element>;
 }
 
 export const protectedRoutes: Route[] = [
-  {
-    path: 'dashboard',
-    Component: Dashboard,
-  },
-  {
-    path: 'details/:id',
-    Component: Details,
-  },
-  {
-    path: 'favorites',
-    Component: Favorites,
-  },
-  {
-    path: 'profile',
-    Component: Profile,
-  },
+    {
+        path: 'dashboard',
+        Component: Dashboard,
+    },
+    {
+        path: 'details/:id',
+        Component: Details,
+    },
+    {
+        path: 'favorites',
+        Component: Favorites,
+    },
 ];

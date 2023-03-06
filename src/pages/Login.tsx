@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppDispatch } from '../app/redux-hooks';
 import { login } from '../redux/services/auth-thunk';
 
-export const Login = () => {
+const Login = () => {
     const appDispatch = useAppDispatch();
     const { values, handleChange, submitForm } = useFormik({
         initialValues: {
@@ -67,3 +67,5 @@ export const Login = () => {
         </div>
     );
 };
+
+export default Login;

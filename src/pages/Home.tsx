@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../app/redux-hooks';
 import { autoLogin } from '../redux/slice/auth.slice';
 
-export const Home = () => {
+const Home = () => {
     return (
         <div>
             <div className="h-screen w-full flex justify-center items-center flex-col ">
@@ -23,3 +23,5 @@ export const Home = () => {
         </div>
     );
 };
+
+export default Home;
