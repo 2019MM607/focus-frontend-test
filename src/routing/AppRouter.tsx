@@ -16,38 +16,44 @@ const NotFound = React.lazy(
 import { PrivateRoute, PublicRoute, protectedRoutes } from './index';
 import { Route as IRoute } from './routes';
 import { Suspense } from 'react';
+import { Fallback } from '../pages/Fallback';
 
 export const AppRouter = () => {
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <BrowserRouter>
-                    <Routes>
-                        <Route element={<PublicRoute />}>
-                            <Route path="/" element={<Home />} />
-                            <Route path="login" element={<Login />} />
-                        </Route>
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<PublicRoute />}>
                         <Route
+                            path="/"
                             element={
-                                <PrivateRoute>
-                                    <Layout />
-                                </PrivateRoute>
+                                <Suspense fallback={<Fallback />}>
+                                    <Home />
+                                </Suspense>
                             }
-                        >
-                            {protectedRoutes.map(
-                                ({ Component, path }: IRoute) => (
-                                    <Route
-                                        key={path}
-                                        path={path}
-                                        element={<Component />}
-                                    />
-                                )
-                            )}
-                        </Route>
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </BrowserRouter>
-            </Suspense>
+                        />
+                        <Route path="login" element={<Login />} />
+                    </Route>
+                    <Route
+                        element={
+                            <PrivateRoute>
+                                <Suspense fallback={<Fallback />}>
+                                    <Layout />
+                                </Suspense>
+                            </PrivateRoute>
+                        }
+                    >
+                        {protectedRoutes.map(({ Component, path }: IRoute) => (
+                            <Route
+                                key={path}
+                                path={path}
+                                element={<Component />}
+                            />
+                        ))}
+                    </Route>
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 };
