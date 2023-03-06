@@ -52,3 +52,7 @@ https://reqres.in/api/login (AUTH)
 ## Deploy site
 https://astounding-jalebi-88ffa4.netlify.app
 
+## Authentication
+Use this credentials as the test says  
+email: eve.holt@reqres.in  
+password: cytislicka
